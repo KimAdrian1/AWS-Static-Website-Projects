@@ -12,10 +12,10 @@ S3
 
 The Project  
 First of all we need to navigate to S3 in our AWS account and create an S3 bucket which would be the actual container of the website files. It needs a globally unique name and we would be enabling versioning on the bucket.  
-![][images/image1.png]![][image2]
+![][./images/image1.png]![][./images/image2]
 
 In the bucket we'll upload the files and folders we need for the website.  
-![][image3]![][image4]
+![][./images/image3]![][image4]
 
 Under the properties tab of the bucket we need to enable Static Website Hosting and give the path to our Index document. In my case grid.html  
 ![][image5]
