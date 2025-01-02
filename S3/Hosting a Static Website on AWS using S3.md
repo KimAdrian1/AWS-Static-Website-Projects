@@ -12,7 +12,7 @@ S3
 
 The Project  
 First of all we need to navigate to S3 in our AWS account and create an S3 bucket which would be the actual container of the website files. It needs a globally unique name and we would be enabling versioning on the bucket.  
-![](./images/image6.png)![](./images/image8.png)
+![](./images/image8.png)![](./images/image6.png)
 
 In the bucket we'll upload the files and folders we need for the website.  
 ![](./images/image9.png)![](./images/image5.png)
