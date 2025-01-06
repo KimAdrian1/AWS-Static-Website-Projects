@@ -5,13 +5,13 @@ In this AWS project I would be demonstrating the process of hosting a static web
 I feel it is a rite of passage for every AWS Engineer, Developer or Solutions Architect to host a website on S3 as their first project and out of respect to this tradition I would be doing the same in this project write-up.
 
 What is S3?  
-AWS’s Simple Storage Service is an object storage service offered through the cloud. Meaning that unlike block storage, any changes made to a data object involves uploading an entirely new version of that object. An example scenario: Let's say I upload a css file to an S3 bucket. In this CSS file, there is a line of code that sets the background-color of an html file as yellow. In order to change the background color of the CSS file to blue, I would have to do so locally then reupload the new CSS file with this change to the S3 bucket. Due to this object storage dilemma, S3 is best used to host static websites and not dynamic ones. Other services like Amplify or Elastic beanstalk can help with that.
+AWS’s Simple Storage Service is an object storage service offered through the cloud. Meaning that unlike block storage, any changes made to a data object involves uploading an entirely new version of that object. An example scenario: Let's say I upload a css file to an S3 bucket. In this CSS file, there is a line of code that sets the background-color of an html file as yellow. In order to change the background color of the CSS file to blue, I would have to do so locally then reupload the new CSS file with this change to the S3 bucket. Due to this object storage dilemma, S3 is best used to host static websites and not dynamic ones. Other AWS services like Amplify or Elastic beanstalk are best used for dynamic websites.
 
 Services Used  
 S3
 
 The Project
-The website files I created to be used for the project are available in this Github Repo.
+The files for the [static website](https://github.com/KimAdrian1/AWSProjects/tree/main/Movie%20Website) I created to be used for the project are available in this Github Repo.
 Starting off, we need to navigate to S3 in our AWS account and create an S3 bucket which would be the actual container of the website files. It needs a globally unique name and we would be enabling versioning on the bucket.  
 ![](./images/image8.png)![](./images/image6.png)
 
