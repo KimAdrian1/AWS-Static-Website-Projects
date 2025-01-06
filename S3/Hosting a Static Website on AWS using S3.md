@@ -13,10 +13,10 @@ Services Used
 The Project  
 The files for the [static website](https://github.com/KimAdrian1/AWSProjects/tree/main/Movie%20Website) I created to be used for the project are available in this Github Repo.
 Starting off, we need to navigate to S3 in our AWS account and create an S3 bucket which would be the actual container of the website files. It needs a globally unique name and we would be enabling versioning on the bucket.
-![](./images/image8.png)![](./images/image6.png)  
+![](./images/image8.png)![](./images/image6.png)
 
 - In the bucket we'll upload the files and folders we need for the website.  
-![](./images/image9.png)![](./images/image5.png)  
+![](./images/image9.png)![](./images/image5.png)
 
 - Under the properties tab of the bucket we need to enable Static Website Hosting and give the path to our Index document. In my case grid.html  
 ![](./images/image3.png)  
