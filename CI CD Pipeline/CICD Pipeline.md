@@ -13,7 +13,7 @@ Services used
 - CloudFront
 
 The Project  
-The website files used in this project are provided in this Github repo, you can clone or fork it to your personal Github account. I'll be using visual studio code since it already has a built-in Github extension. Using the Github extension, I can make commits and pushes from my local directory without using the terminal, Github app or Github website.
+The [static website files](https://github.com/KimAdrian1/AWSProjects/tree/main/Movie%20Website) I created for this project are provided in this Github repo. I'll be using visual studio code since it already has a built-in Github extension. Using the Github extension, I can make commits and pushes from my local directory without using the terminal, Github app or Github website.
 
 - The local directory containing my website files has been cloned and synced from the github repo which will be used as the source for the pipeline.
 
