@@ -20,7 +20,7 @@ Services Used
 - AWS CLI
 
 The Project  
-The CloudFormation Template I created for this project would be provided in this Github repo. I also created a terraform file for this project which would be in this repository. I'll be explaining the CloudFormation template used in this project.  
+The CloudFormation Template I created for this project would be available in this Github repo. I also created a terraform file for this project which would be in this repository. I'll be explaining the CloudFormation template used in this project.  
 The resources section contains all the AWS resources to be created by CloudFormation.
 
 - An S3 bucket called “movie-project-bucket will be created” with versioning enabled.
