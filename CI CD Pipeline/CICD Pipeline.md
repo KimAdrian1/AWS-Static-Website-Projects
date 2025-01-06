@@ -68,7 +68,7 @@ Now that we have our Github repository set, we need to head into the AWS console
 
 ![](./images/image6.png)
 
-- In the deploy stage, choose Amazon S3 as the deploy stage. The region should be the region where the bucket is located. Select the bucket created earlier and check the “Extract file before deploy option”.
+- In the deploy stage, choose Amazon S3 as the deploy provider. The region should be the region where the bucket is located. Select the bucket created earlier and check the “Extract file before deploy option”.
 
 ![](./images/image8.png)
 
