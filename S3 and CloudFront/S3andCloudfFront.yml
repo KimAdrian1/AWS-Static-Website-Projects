@@ -1,0 +1,75 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: A Template for creating an S3 bucket, CloudFront distribution, and Origin Access Control (OAC) for secure access.
+
+Resources:
+  # Create an S3 Bucket to host the static website files
+  BucketForWebsiteHosting:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: movie-project-thingy
+      VersioningConfiguration:
+        Status: Enabled
+
+  # Origin Access Control for the Cloudfront Distribution
+  CloudFrontOriginAccessControl:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+     OriginAccessControlConfig:
+      Name: S3AccessControl
+      Description: OAC for secure CloudFront access to S3 bucket
+      OriginAccessControlOriginType: s3
+      SigningBehavior: always
+      SigningProtocol: sigv4
+
+  # The CloudFront Distribution
+  CloudfrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Origins:
+          - Id: S3Origin
+            DomainName: !GetAtt BucketForWebsiteHosting.DomainName
+            S3OriginConfig: {}
+            OriginAccessControlId: !GetAtt CloudFrontOriginAccessControl.Id
+        DefaultCacheBehavior:
+          TargetOriginId: S3Origin
+          ViewerProtocolPolicy: redirect-to-https # Main reason we are using a CloudFront Distribution to serve the S3 website is to get HTTPS
+          AllowedMethods:
+            - GET
+            - HEAD
+          CachedMethods:
+            - GET
+            - HEAD
+          ForwardedValues:
+            QueryString: false
+            Cookies:
+              Forward: none 
+          Compress: true
+        ViewerCertificate:
+          CloudFrontDefaultCertificate: true
+        DefaultRootObject: grid.html
+
+  # S3 Bucket Policy allowing CloudFront to access the Stattic Website files
+  BucketPolicyForWebsite:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref BucketForWebsiteHosting
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: "s3:GetObject"
+            Resource: !Sub "arn:aws:s3:::${BucketForWebsiteHosting}/*"
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${CloudfrontDistribution}"
+Outputs:
+  WebsiteURL:
+   Value: !Join [ "", [ "https://", !GetAtt CloudfrontDistribution.DomainName ]]
+   Description: The URL of the CloudFront distribution
+    
+
+
