@@ -20,7 +20,7 @@ Services Used
 - AWS CLI
 
 The Project  
-The [CloudFormation Template ](https://github.com/KimAdrian1/AWSProjects/blob/main/S3%20and%20CloudFront/S3andCloudfFront.yml) I created for this project would be available in this Github directory. I also created a [Terraform file](https://github.com/KimAdrian1/AWSProjects/blob/main/S3%20and%20CloudFront/S3andCloudFront.tf) for this project, available in this directory. I'll be explaining the CloudFormation template used in this project.
+The [CloudFormation Template ](https://github.com/KimAdrian1/AWSProjects/blob/main/S3%20and%20CloudFront/S3andCloudfFront.yml) I created for this project would be available in this Github directory. I also created a [Terraform file](https://github.com/KimAdrian1/AWSProjects/blob/main/S3%20and%20CloudFront/S3andCloudFront.tf) for this project, available in this directory. The files for the [static website](https://github.com/KimAdrian1/AWSProjects/tree/main/Movie%20Website) I created are available in this repo. I'll be explaining the CloudFormation template used in this project.
 
 - The resources section contains all the AWS resources to be created by CloudFormation.
 - An S3 bucket called “movie-project-bucket will be created” with versioning enabled.
