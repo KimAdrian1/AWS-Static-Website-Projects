@@ -26,17 +26,17 @@ The resources section contains all the AWS resources to be created by CloudForma
 - An S3 bucket called “movie-project-bucket will be created” with versioning enabled.
 - An Origin Access Control named “S3AccessControl” would be created to be used by the CloudFront Distribution. This would allow the CloudFront Distribution to access the content of the S3 bucket while “Block all Public Access” is still on.
 
-![](./images/image6)
+![](./images/image6.png)
 
 - A CloudFront Distribution would be created and it would be enabled upon creation. The Origin would be the S3 bucket created above. All requests would be redirected to HTTPS and the only Methods being cached at the edge locations are GET and HEAD. Since this website is static, we do not need other request types.
 - The “DefaultRootObject” is similar to the index document in S3 as it tells CloudFront where to point to in the origin(S3 bucket) upon a request.
 
-![](./images/image12)
+![](./images/image12.png)
 
 - The screenshot below shows the bucket policy for the S3 bucket which would grant the CloudFront Distribution access through OAC.
 - It would allow the CloudFront distribution to perform only the “S3:GetObject” action on the bucket.
 
-![](./images/image1)
+![](./images/image1.png)
 
 - The Outputs section is used to give us information about the resources after creation. In this case the Output we are requesting is the url of the CloudFront Distribution. We can view the outputs through the terminal instead of the console.
 
@@ -44,25 +44,25 @@ Now how do we run this template? That's where CloudFormation comes in. We can ac
 
 - Its best practice to validate your YAML template first to catch any syntax errors. To do this you can run: “aws cloudformation validate-template \--template-body file://nameoftemplate.yml” in the directory containing your template file.
 
-![](./images/image10)
+![](./images/image10.png)
 
 - If there are no errors, you can then proceed to deploy the template to CloudFormation using: “aws cloudformation deploy \--template-file nameoftemplate.yml \--stack-name nameofstack”
 - A stack would be created by CloudFormation in accordance with the resources in the template
 
-![](./images/image5)
+![](./images/image5.png)
 
 - Now we can go ahead and upload the website files to the S3 bucket using the CLI. You can use the command: “aws s3 cp sourcedirectoryname/ s3://nameofbucket \--recursive” to upload the website files from your local directory to the bucket.
 - After the files are uploaded, you can verify the contents of the bucket using the ls command: “aws s3 ls s3://nameofbucket”
 
-![](./images/image11)
+![](./images/image11.png)
 
 - After confirmation that the website files are in the bucket, we can request the Output for the CloudFront distribution URL using the describe-stacks command: “aws cloudformation describe-stacks \--stack-name nameofstack \--query “Stacks\[0\].Outputs””
 
-![](./images/image3)
+![](./images/image3.png)
 
 - After copying the Output Value from the terminal to a browser, the website should display.
 
-![](./images/image7)
+![](./images/image7.png)
 
 - From the Screenshot above, you can observe that the website is being encrypted over HTTPS as shown by the icon on the left next to the website URL.
 
@@ -70,17 +70,17 @@ The resources we created can be viewed in the console.
 
 - The CloudFormation stack from the template
 
-![](./images/image4)
+![](./images/image4.png)
 
 - The S3 bucket created from the template and its contents; the website files.
 
-![](./images/image2)
+![](./images/image2.png)
 
-![](./images/image9)
+![](./images/image9.png)
 
 - The CloudFront distribution created from the template
 
-![](./images/image8)
+![](./images/image8.png)
 
 I have also written a Terraform file for the creation of these same resources if the reader is more comfortable with Terraform in comparison to CloudFormation.
 
