@@ -20,9 +20,9 @@ Services Used
 - AWS CLI
 
 The Project  
-The [CloudFormation Template ](https://github.com/KimAdrian1/AWSProjects/blob/main/S3%20and%20CloudFront/S3andCloudfFront.yml) I created for this project would be available in this Github directory. I also created a terraform file for this project, also available in this directory. I'll be explaining the CloudFormation template used in this project.  
-The resources section contains all the AWS resources to be created by CloudFormation.
+The [CloudFormation Template ](https://github.com/KimAdrian1/AWSProjects/blob/main/S3%20and%20CloudFront/S3andCloudfFront.yml) I created for this project would be available in this Github directory. I also created a [terraform file](https://github.com/KimAdrian1/AWSProjects/blob/main/S3%20and%20CloudFront/S3andCloudFront.tf) for this project, available in this directory. I'll be explaining the CloudFormation template used in this project.
 
+- The resources section contains all the AWS resources to be created by CloudFormation.
 - An S3 bucket called “movie-project-bucket will be created” with versioning enabled.
 - An Origin Access Control named “S3AccessControl” would be created to be used by the CloudFront Distribution. This would allow the CloudFront Distribution to access the content of the S3 bucket while “Block all Public Access” is still on.
 
