@@ -87,7 +87,7 @@ Now that we have our Github repository set, we need to head into the AWS console
 ![](./images/image14.png)![](./images/image5.png)
 
 - In the screenshot above, the drop down menu only has the word “anime” representing all options. We’ll change this in VScode along with the background color in the CSS file then commit and push the changes to Github. Once this happens CodePipeline should automatically update the S3 bucket and CloudFront would reflect the changes in about 20 minutes.
-- In the HTML file I have changed the options to: anime, comedy, fantasy, horror, musical and sci-fi. In the CSS file, I’ve changed the color of \<main\> to a shade of green. Then we can commit and sync(push) the changes.
+- In the HTML file I have changed the options to: anime, comedy, fantasy, horror, musical and sci-fi. In the CSS file, I’ve changed the color of \<main\> to a shade of green in the CSS file. Then we can commit and sync(push) the changes.
 
 ![](./images/image12.png)![](./images/image24.png)![](./images/image23.png)
 
