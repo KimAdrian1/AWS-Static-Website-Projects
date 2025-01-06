@@ -82,7 +82,7 @@ The resources we created can be viewed in the console.
 
 ![](./images/image8.png)
 
-I have also written a Terraform file for the creation of these same resources if the reader is more comfortable with Terraform in comparison to CloudFormation.
+Reminder that I have also written a [Terraform file](https://github.com/KimAdrian1/AWSProjects/blob/main/S3%20and%20CloudFront/S3andCloudFront.tf) for the creation of these same resources if the reader is more comfortable with Terraform in comparison to CloudFormation.
 
 Some Key Notes
 
