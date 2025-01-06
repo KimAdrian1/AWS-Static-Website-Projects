@@ -11,7 +11,7 @@ Services Used
 S3
 
 The Project
-The files for the [static website](https://github.com/KimAdrian1/AWSProjects/tree/main/Movie%20Website) I created to be used for the project are available in this Github Repo.
+- The files for the [static website](https://github.com/KimAdrian1/AWSProjects/tree/main/Movie%20Website) I created to be used for the project are available in this Github Repo.
 Starting off, we need to navigate to S3 in our AWS account and create an S3 bucket which would be the actual container of the website files. It needs a globally unique name and we would be enabling versioning on the bucket.  
 ![](./images/image8.png)![](./images/image6.png)
 
