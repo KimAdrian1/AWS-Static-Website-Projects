@@ -1,25 +1,25 @@
-**Serving a static website from s3 through CloudFront**
+# **Serving a static website from s3 through CloudFront**
 
-Project Introduction  
+**Project Introduction**  
 This AWS project is going to demonstrate the process of serving a website from S3 through a Content Delivery Network known as CloudFront. As I teased in my S3 project, enabling static website hosting in S3 comes with some security risks to the S3 bucket since we disabled the “Block All Public Access” option. Also S3 does not natively support HTTPS, hence all traffic from the bucket to the end user client uses HTTP. In this project, we would be serving the static website from S3 through CloudFront, however using proper Infrastructure-as-Code DevOps practices, we would be doing this entire project with the AWS CLI, AWS CloudFormation and Terraform.
 
-What is CloudFront?  
+**What is CloudFront?**  
 CloudFront is AWS’s Content Delivery Network. It serves content from an Origin (such as S3) through a location closer to the end user. It uses a series of edge locations all around the world which are used to cache data from the Origin server(in this case S3). This reduces the load on the Origin and the costs associated with data retrieval from the origin upon reloads and subsequent visits. CloudFront is also convenient for this project because it supports HTTPS and with CloudFront Origin Access Control(OAC), CloudFront can access the content of the S3 bucket without having to enable static website hosting or disabling the “Block all Public Access ” option on the bucket.
 
-What is CloudFormation?  
+**What is CloudFormation?**  
 CloudFormation is AWS’s native infrastructure-as-code(IAC) service. You can describe the AWS resources to be created in a file called a template. It can be written in YAML or JSON. I would highly suggest learning cloudformation if you plan to be an AWS Devops Engineer.
 
-What is Terraform?  
+**What is Terraform?**  
 Terraform is also another Infrastructure-as-code service, however it is owned by Hashicorp not AWS. The main appeal behind Terraform is that it is a cross platform service. It supports AWS, Google Cloud, Ms Azure, Kubernetes, Docker, Auth0 etc.
 
-Services Used
+**Services Used**
 - S3
 - CloudFormation
 - CloudFront
 - Terraform
 - AWS CLI
 
-The Project  
+**The Project**  
 The [CloudFormation Template ](https://github.com/KimAdrian1/AWSProjects/blob/main/S3%20and%20CloudFront/S3andCloudfFront.yml) I created for this project would be available in this Github directory. I also created a [Terraform file](https://github.com/KimAdrian1/AWSProjects/blob/main/S3%20and%20CloudFront/S3andCloudFront.tf) for this project, available in this directory. The files for the [static website](https://github.com/KimAdrian1/AWSProjects/tree/main/Movie%20Website) I created are available in this repo. I'll be explaining the CloudFormation template used in this project.
 
 - The resources section contains all the AWS resources to be created by CloudFormation.
@@ -84,11 +84,11 @@ The resources we created can be viewed in the console.
 
 Reminder that I have also written a [Terraform file](https://github.com/KimAdrian1/AWSProjects/blob/main/S3%20and%20CloudFront/S3andCloudFront.tf) for the creation of these same resources if the reader is more comfortable with Terraform in comparison to CloudFormation.
 
-Some Key Notes
+**Some Key Notes**
 
 1. The problem with bucket vulnerability has been fixed. Since the bucket contents are now being served through a CloudFront distribution using OAC, there is no need to disable the “Block all public access” option or to set the Principal in the bucket policy to “\*”.
 2. With HTTPS, web traffic is now encrypted and secure.
 3. Due to the caching capabilities of CloudFront, not all requests are loaded from the S3 bucket, but instead the CloudFront edge locations closer to the end user.
 
-Future Plans  
+**Future Plans**  
 Remember that due to the problem of object storage in s3, with any change made to the website files, an entirely new version of the file must be uploaded to S3. Developers are constantly making changes weekly or daily to web applications. Whether in a live or testing stage, the process of logging in to AWS just to upload a formatted website file to s3 would be tedious, inefficient and with the added risks to the AWS account. That’s where a version control system with a continuous-integration and continuous-delivery(CI/CD) pipeline comes in. In my next project I'll be using Github and AWS CodePipeline to solve these issues.
