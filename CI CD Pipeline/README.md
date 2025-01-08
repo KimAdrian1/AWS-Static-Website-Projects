@@ -3,16 +3,16 @@
 **Project Introduction**  
 In this AWS project, I would be demonstrating the process of creating a CI/CD pipeline to facilitate the update of website files in an S3 bucket with Github as the source. This means that anytime a push is made to the Github repository, the same change would also be made to the S3 bucket. In the closure of my last project involving serving a website through CloudFront with S3 as the origin, I stated that S3 was unfavourable and inefficient for the developers pushing changes to files in the bucket on a daily basis. This could be solved by using a version control system like Github and facilitating the updates of the website files in the S3 bucket through a CI/CD pipeline. You may be thinking, doesn't AWS have its own version control service for developers? After all, it is the biggest cloud computing platform. Sadly, at the time of writing this, AWS’s version control system; CodeCommit has been deprecated. Github is the next best 3rd party version control system and lets be honest it is the most popular too.
 
-What is CodePipeline?  
+**What is CodePipeline?**  
 CodePipeline is a continuous integration and continuous delivery service from AWS. It is an automation tool designed to make the process of testing, building, and deploying applications in AWS faster and more convenient. Since it is event driven, a pipeline workflow can be started based on pull or push requests, which is perfect for this project scenario.
 
-Services used
+**Services used**
 - CodePipeline
 - S3
 - Github
 - CloudFront
 
-The Project  
+**The Project**  
 The [static website files](https://github.com/KimAdrian1/AWSProjects/tree/main/Movie%20Website) I created for this project are provided in this Github repo. I'll be using visual studio code since it already has a built-in Github extension. Using the Github extension, I can make commits and pushes from my local directory without using the terminal, Github app or Github website.
 
 - The local directory containing my website files has been cloned and synced from the github repo which will be used as the source for the pipeline.
@@ -99,9 +99,9 @@ Now that we have our Github repository set, we need to head into the AWS console
 
 ![](./images/image27.png)
 
-Some Key notes
+**Some Key notes**
 
 1. You can set the CloudFront caching policy to “CachingDisabled” if your website requires immediate change for your end users upon pushes made in Github. This would incur more costs though.
 
-Future plans  
+**Future plans**  
 There is a fully managed AWS service named Amplify that embodies all the core functionalities of this project. In my next project, I'll be diving into the workings of Amplify and investigating how these different AWS solutions can incur variable costs, this will be based on a real world AWS project I have undertaken.
