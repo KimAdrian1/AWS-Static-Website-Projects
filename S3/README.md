@@ -1,16 +1,16 @@
-**Hosting a Static Website on AWS using S3**
+# **Hosting a Static Website on AWS using S3**
 
-Project Introduction  
+**Project Introduction**  
 In this AWS project I would be demonstrating the process of hosting a static website using the AWS service S3(Simple Storage Service).  
 I feel it is a rite of passage for every AWS Engineer, Developer or Solutions Architect to host a website on S3 as their first project and out of respect to this tradition I would be doing the same in this project write-up.
 
-What is S3?  
+**What is S3?**  
 AWS’s Simple Storage Service is an object storage service offered through the cloud. Meaning that unlike block storage, any changes made to a data object involves uploading an entirely new version of that object. An example scenario: Let's say I upload a css file to an S3 bucket. In this CSS file, there is a line of code that sets the background-color of an html file as yellow. In order to change the background color of the CSS file to blue, I would have to do so locally then reupload the new CSS file with this change to the S3 bucket. Due to this object storage dilemma, S3 is best used to host static websites and not dynamic ones. Other AWS services like Amplify or Elastic beanstalk are best used for dynamic websites.
 
-Services Used  
+**Services Used**  
 - S3
 
-The Project  
+**The Project**  
 The files for the [static website](https://github.com/KimAdrian1/AWSProjects/tree/main/Movie%20Website) I created to be used for the project are available in this Github Repo.
 Starting off, we need to navigate to S3 in our AWS account and create an S3 bucket which would be the actual container of the website files. It needs a globally unique name and we would be enabling versioning on the bucket.
 ![](./images/image8.png)![](./images/image6.png)
@@ -53,7 +53,7 @@ Starting off, we need to navigate to S3 in our AWS account and create an S3 buck
 
 - As you can see from the screenshot above we can finally view the website in our S3 bucket.
 
-Some key notes on why S3 may not be the best for web hosting.
+**Some key notes on why S3 may not be the best for web hosting**
 
 1. S3 does not natively support HTTPS, so any communication between the client browser and S3 is not secure. It also does not have support for certificates if you wanted to do so manually.
 2. As discussed earlier, S3 is not suitable for dynamic website hosting as there is no processing power involved with object storage.
