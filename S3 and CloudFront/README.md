@@ -42,21 +42,21 @@ The [CloudFormation Template ](https://github.com/KimAdrian1/AWSProjects/blob/ma
 
 Now how do we run this template? That's where CloudFormation comes in. We can access CloudFormation through the AWS CLI. In my case I'm using the powershell terminal through VSCode. You can sign in using your account access keys or in my case temporary security credentials.
 
-- Its best practice to validate your YAML template first to catch any syntax errors. To do this you can run: “aws cloudformation validate-template \--template-body file://nameoftemplate.yml” in the directory containing your template file.
+- Its best practice to validate your YAML template first to catch any syntax errors. To do this you can run: `aws cloudformation validate-template --template-body file://nameoftemplate.yml` in the directory containing your template file.
 
 ![](./images/image10.png)
 
-- If there are no errors, you can then proceed to deploy the template to CloudFormation using: “aws cloudformation deploy \--template-file nameoftemplate.yml \--stack-name nameofstack”
+- If there are no errors, you can then proceed to deploy the template to CloudFormation using: `aws cloudformation deploy --template-file nameoftemplate.yml --stack-name nameofstack`
 - A stack would be created by CloudFormation in accordance with the resources in the template
 
 ![](./images/image5.png)
 
-- Now we can go ahead and upload the website files to the S3 bucket using the CLI. You can use the command: “aws s3 cp sourcedirectoryname/ s3://nameofbucket \--recursive” to upload the website files from your local directory to the bucket.
-- After the files are uploaded, you can verify the contents of the bucket using the ls command: “aws s3 ls s3://nameofbucket”
+- Now we can go ahead and upload the website files to the S3 bucket using the CLI. You can use the command: `aws s3 cp sourcedirectoryname/ s3://nameofbucket --recursive` to upload the website files from your local directory to the bucket.
+- After the files are uploaded, you can verify the contents of the bucket using the ls command: `aws s3 ls s3://nameofbucket`
 
 ![](./images/image11.png)
 
-- After confirmation that the website files are in the bucket, we can request the Output for the CloudFront distribution URL using the describe-stacks command: “aws cloudformation describe-stacks \--stack-name nameofstack \--query “Stacks\[0\].Outputs””
+- After confirmation that the website files are in the bucket, we can request the Output for the CloudFront distribution URL using the describe-stacks command: `aws cloudformation describe-stacks --stack-name nameofstack --query “Stacks[0].Outputs”`
 
 ![](./images/image3.png)
 
@@ -86,7 +86,7 @@ Reminder that I have also written a [Terraform file](https://github.com/KimAdria
 
 **Some Key Notes**
 
-1. The problem with bucket vulnerability has been fixed. Since the bucket contents are now being served through a CloudFront distribution using OAC, there is no need to disable the “Block all public access” option or to set the Principal in the bucket policy to “\*”.
+1. The problem with bucket vulnerability has been fixed. Since the bucket contents are now being served through a CloudFront distribution using OAC, there is no need to disable the “Block all public access” option or to set the Principal in the bucket policy to “*”.
 2. With HTTPS, web traffic is now encrypted and secure.
 3. Due to the caching capabilities of CloudFront, not all requests are loaded from the S3 bucket, but instead the CloudFront edge locations closer to the end user.
 
