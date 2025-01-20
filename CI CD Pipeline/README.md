@@ -104,4 +104,4 @@ Now that we have our Github repository set, we need to head into the AWS console
 1. You can set the CloudFront caching policy to “CachingDisabled” if your website requires immediate change for your end users upon pushes made in Github. This would incur more costs though.
 
 **Future plans**  
-There is a fully managed AWS service named Amplify that embodies all the core functionalities of this project. In my next project, I'll be diving into the workings of Amplify and investigating how these different AWS solutions can incur variable costs, this will be based on a real world AWS project I have undertaken.
+There is a fully managed AWS service named Amplify that embodies all the core functionalities of this project. In my next project, I'll be diving into the workings of Amplify and investigating how these different AWS solutions can incur variable costs.
