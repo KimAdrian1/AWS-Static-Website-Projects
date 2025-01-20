@@ -30,18 +30,19 @@ Starting off, we need to navigate to S3 in our AWS account and create an S3 buck
 ![](./images/image10.png)  
 
 - After this we need to write a bucket policy in json to allow the public internet access to the bucket. The principal being set to “\*” would allow every IP address access to the bucket, hence; the public internet. The resource section contains the Amazon Resource Name(arn) of the bucket being accessed by the Principal.
-
+```JSON
 {  
 "Version": "2012-10-17",  
-"Statement": \[  
+"Statement": [  
 {  
 "Effect": "Allow",  
-"Principal": "\*",  
+"Principal": "*",  
 "Action": "s3:GetObject",  
-"Resource": "arn:aws:s3:::bucket-name/\*"  
+"Resource": "arn:aws:s3:::bucket-name/*"  
  }  
- \]  
+ ]  
  }
+```
 
 ![](./images/image7.png)  
 
